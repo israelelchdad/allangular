@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="divv">
+       <span id='spann'>title</span> <br>
+       <input type="checkbox" id="check"><br>
+       <img id="im" src="" alt="">
+       <button onclick="next()">next</button>
+
+    </div>
+    <style>
+    
+    img{
+        width: 20px;
+        height: 20px;
+
+    }
+    </style>
+    <script>
+        let index=0;
+        function next(){
+            index++;
+            let x= new XMLHttpRequest();
+            x.onload=function(){
+                let item=JSON.parse(this.responseText)
+                console.log(item);
+                populatetext(item)
+            };
+            x.open("GET","https://jsonplaceholder.typicode.com/todos/"+index)
+            x.send()
+            
+            let y= new XMLHttpRequest();
+            y.onload=function(){
+                let itemy=JSON.parse(this.responseText)
+                console.log(itemy);
+                populatetexty(itemy)
+            };
+            y.open("GET","https://jsonplaceholder.typicode.com/photos/"+index)
+            y.send()
+
+        }
+        function populatetext(item){
+         
+            document.querySelector('#check').checked=item.completed;
+            document.getElementById('spann').innerHTML=item.title
+         
+        }
+        function populatetexty(itemy){
+         document.querySelector('#im').src=itemy.url;
+
+     }
+     
+
+    
+    </script>
+</body>
+</html>

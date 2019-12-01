@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>id</th>
+                <th>lastname</th>
+                <th>rav</th>
+                <th>salary</th>
+                <th>yeshiva</th>
+                <th>masechet</th>
+            </tr>
+
+        </thead>
+        <tbody>
+           
+        </tbody>
+    </table>
+    <script>
+
+        let avrech=function(name,id,lastname,rav,salary,yeshiva,masechet){
+            this.name=name;
+            this.id=id;
+            this.lastname=lastname;
+            this.rav=rav;
+            this.salary=salary;
+            this.yeshiva=yeshiva;
+            this.masechet=masechet;
+         }
+         let avrecim=[
+             new avrech('isreal',1,'elchdad','hrav ovadia',60000,'biniyn av','havoda zara'),
+             new avrech('mosh',2,'a','hrav ovadia',40000,'mir','bk'),
+             new avrech('avi',3,'b','hrav ovadia',10000,'orchot tora','bm'),
+             new avrech('nati',4,'c','hrav ovadia',80000,'kol tora','bb'),
+             new avrech('dani',5,'d','hrav ovadia',20000,'chevron','brachot'),
+             new avrech('gadi',6,'e','hrav ovadia',90000,'mir','baiza'),
+             new avrech('meir',7,'f','hrav ovadia',80000,'solovaychik','sanadrin'),
+             new avrech('diavid',8,'g','hrav ovadia',210000,'bait','mgila'),
+             new avrech('alchnan',9,'g','hrav ovadia',210000,'baitmatityo','mnachot'), 
+             new avrech('kobi',10,'g','hrav ovadia',210000,'maor','nida'),
+         ]
+         let templatefortabileavrecim='<tr><td>{{name}}</td><td>{{id}}</td><td>{{lastname}}</td><td>{{rav}}</td><td>{{salary}}</td><td>{{yeshiva}}</td><td>{{masechet}}</td></tr>'
+         let ttbody=document.querySelector('tbody');
+         avrecim.forEach(alement=>
+         ttbody.innerHTML+=render(templatefortabileavrecim,alement)
+         );
+         function render(tamplate,data){
+            //  console.log(tamplate);
+             let arr1=tamplate.split('{{');
+             console.log (arr1);
+            
+             for (let i = 1; i < arr1.length; i++) {
+                 const element = arr1[i];
+                 let arr2=element.split('}}');
+                //  console.log(arr2)
+                 arr1[i]=data [arr2[0]]+arr2[1];
+
+                }
+                // console.log(arr1);
+              let str=arr1.join('')
+              return str;
+
+         }
+
+
+    
+    
+    </script>
+    
+</body>
+</html>

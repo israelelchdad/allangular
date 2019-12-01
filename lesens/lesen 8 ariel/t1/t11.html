@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="d"></div>
+    <script>
+  
+    function sumsync(a,b,callback){
+        console.log('2 caled syncs');
+        setTimeout(function(){
+            console.log('3 timeout sumsync');
+            let t=a+b
+            callback(t)
+        },1150)
+    }
+    console.log('1 call sumsync');
+    sumsync(3,4,function callbacsum(total){
+        console.log("colback run")
+        console.log(total)
+    })
+    console.log('runnig')
+    function sum(a,b){
+        return a+b
+    }
+    console.log('runnig')
+    let totaal=sum(3,4)
+    console.log(totaal)
+
+    
+    
+    </script>
+    
+</body>
+</html>

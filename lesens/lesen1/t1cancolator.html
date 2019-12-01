@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>enter number 1</div>
+    <input id="number1" type="number"><br>
+    <div>enter number2</div>
+    <input id="number2" type="number"><br>
+    <div>enter operator</div>
+    <input id="operator" type="text"><br>
+    <button id="b" onclick="cancolator()">cuncolator</button>
+
+
+<script>
+function cancolator(){
+    
+    let a=document.getElementById("number1").value*1
+    let b=document.getElementById("number2").value*1
+    let c=document.getElementById("operator").value
+
+
+    can(a,b,c)
+}
+function can(a,b,c){
+   if(c=='+'){
+       alert( a+b)
+       return
+       }
+   if(c=='*'){
+       alert(a*b)
+       return
+   }
+   if(c=='/'){
+      alert(a/b)
+      return
+    }
+
+   if(c=='-'){
+        alert(a-b)
+        return
+        }
+   else{
+       alert('try again')
+
+   }
+}
+
+
+
+</script>
+
+</body>
+</html>
